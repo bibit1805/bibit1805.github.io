@@ -1,0 +1,567 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Caveat", cursive;
+    background: #111;
+    color: white;
+    overflow: hidden;
+}
+
+#juego {
+    width: 100vw;
+    height: 100vh;
+}
+
+.escena {
+    width: 100%;
+    height: 100%;
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        #111827,
+        #1f2937
+    );
+}
+
+.escena.activa {
+    display: flex;
+}
+
+.contenido {
+    max-width: 700px;
+    padding: 40px;
+}
+
+h1 {
+    font-size: 60px;
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.hora {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-size: 33px;
+    letter-spacing: 5px;
+    color: white;
+    text-shadow: 0 2px 10px black;
+
+    animation: horaIntro 4s ease-in-out forwards;
+}
+
+
+@keyframes horaIntro {
+
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    65% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+button {
+    padding: 15px 35px;
+
+    border: 1px solid white;
+    background: transparent;
+    color: white;
+
+    font-size: 16px;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    background: white;
+    color: #111;
+}
+
+.candado {
+    font-size: 70px;
+    margin-bottom: 25px;
+}
+
+.correcto {
+    font-size: 100px;
+    margin-bottom: 20px;
+}
+
+#lector {
+    width: 300px;
+    height: 200px;
+
+    margin: 30px auto;
+
+    border: 2px solid white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 70px;
+}
+
+.elevador {
+    font-size: 100px;
+
+    animation: subir 1.5s infinite alternate;
+}
+
+@keyframes subir {
+
+    from {
+        transform: translateY(20px);
+    }
+
+    to {
+        transform: translateY(-20px);
+    }
+
+}.escena-fondo {
+ position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    background-image: url("imagenes/oficina_calle.png");
+    background-size: cover;
+    background-position: center;
+
+    overflow: hidden;
+
+    z-index: 1;
+}   
+
+.hora {
+    position: absolute;
+
+    bottom: 5px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 33px;
+    letter-spacing: 5px;
+
+    text-shadow: 0 2px 10px black;
+
+    opacity: 0;
+
+    animation: aparecerHora 4s ease-in-out forwards;
+}
+
+
+@keyframes aparecerHora {
+
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
+}
+.nubes {
+    position: absolute;
+
+    top: 10px;
+    left: -500px;
+
+    width: 500px;
+
+    animation: moverNubes 35s linear infinite;
+}
+
+
+@keyframes moverNubes {
+
+    from {
+        left: -500px;
+    }
+
+    to {
+        left: 110%;
+    }
+
+}
+.edificio {
+    position: absolute;
+
+    bottom: 0px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 104%;
+
+    z-index: 2;
+}
+.farol {
+    position: absolute;
+
+    bottom: 8px;
+    left: 5%;
+
+    width: 600px;
+
+    z-index: 3;
+}
+.carro {
+    position: absolute;
+
+    bottom: 9px;
+    left: -250px;
+
+    width: 520px;
+
+    z-index: 4;
+
+    animation: pasarCarro 15s linear infinite;
+}
+
+@keyframes pasarCarro {
+
+    from {
+        left: -250px;
+    }
+
+    to {
+        left: 110%;
+    }
+
+}
+.boton-continuar {
+    position: absolute;
+
+    bottom: 3px;
+    right: 50px;
+
+    z-index: 10;
+
+    padding: 5px 15px;
+
+    font-family: "Caveat", cursive;
+    font-size: 28px;
+
+    color: white;
+
+    background: transparent;
+
+    border: none;
+
+    cursor: pointer;
+
+    opacity: 0;
+
+    animation: aparecerBoton 2s ease forwards;
+    animation-delay: 6s;
+
+    transition: transform 0.2s ease;
+}
+
+
+.boton-continuar:hover {
+    transform: scale(1.1);
+}
+
+
+@keyframes aparecerBoton {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+.fondo-noche {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    top: 0;
+    left: 0;
+
+    z-index: 2;
+}
+
+.carro-noche {
+    position: absolute;
+
+    bottom: 20px;
+    left: -250px;
+
+    width: 400px;
+
+    z-index: 2;
+
+    animation: pasarCarroNoche 13s linear infinite;
+}
+
+@keyframes pasarCarroNoche {
+
+    from {
+        left: -250px;
+    }
+
+    to {
+        left: 110%;
+    }
+
+}
+.titulo-juego {
+    position: absolute;
+
+    top: 20px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 5;
+
+    margin: 0;
+
+    font-family: "Caveat", cursive;
+    font-size: 25px;
+    font-weight: normal;
+
+    color: white;
+
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+
+    white-space: nowrap;
+
+    opacity: 0;
+
+    animation: aparecerTitulo 2.5s ease-in-out forwards;
+    animation-delay: 1s;
+}
+@keyframes aparecerTitulo {
+
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+
+}
+#sonidoNoche {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+}
+
+
+#recepcion {
+    position: relative;
+    width: 100vw;
+    height: 56.25vw;
+    max-height: 100vh;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    margin: auto;
+}
+.recepcion-fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    z-index: 1;
+}
+.objeto {
+    position: absolute;
+    z-index: 5;
+}
+.elevador-recepcion {
+    top: 8%;
+    left: -6%;
+    width: 49%;
+}
+
+.puerta-recepcion {
+    top: 11%;
+    left: 6.8%;
+    width: 86%;
+    z-index: 7;
+}
+
+.mesa-recepcion {
+    top: 42%;
+    left: 45%;
+    width: 32%;
+}
+
+.mostrador-recepcion {
+    top: 21%;
+    left: 26%;
+    width: 50%;
+}
+
+.fuente-recepcion {
+    top: 3%;
+    left: 38%;
+    width: 55%;
+}
+
+.sillon-recepcion {
+    position: absolute;
+    top: 25%;
+    left: 33%;
+    width: 52%;
+    z-index: 7;
+}
+
+.detector-recepcion {
+    top: 20%;
+    left: 12.3%;
+    width: 76%;
+     z-index: 7;
+}
+#reporterito-contenedor {
+    position: absolute;
+    width: 18%;
+    bottom: 5%;
+    left: 45%;
+    z-index: 6;
+}
+
+#reporterito {
+    width: 100%;
+    display: block;
+}
+.zona-mostrador {
+    position: absolute;
+    top: 45%;
+    left: 26%;
+    width: 50%;
+    height: 20%;
+    z-index: 4;
+    pointer-events: none;
+}
+.zona-detector {
+    position: absolute;
+    top: 20%;
+    left: 12.3%;
+    width: 76%;
+    height: 60%;
+    z-index: 4;
+    pointer-events: none;
+}
+.zona-puerta {
+    position: absolute;
+    top: 48%;
+    left: 7%;
+    width: 86%;
+    height: 20%;
+    z-index: 4;
+    pointer-events: none;
+}
+/* =================================
+   ZONAS DE COLISIÓN - TEMPORALES
+   ================================= */
+
+.pared {
+    position: absolute;
+    background: rgba(255, 0, 0, 0.45);
+    border: 2px solid red;
+    z-index: 50;
+}
+
+/* PARED SUPERIOR - IZQUIERDA DE LA PUERTA */
+.pared-arriba-izq {
+    top: 0%;
+    left: 0%;
+    width: 40%;
+    height: 10%;
+}
+
+/* PARED SUPERIOR - DERECHA DE LA PUERTA */
+.pared-arriba-der {
+    top: 0%;
+    left: 70%;
+    width: 30%;
+    height: 10%;
+}
+
+/* PARED IZQUIERDA */
+.pared-izquierda {
+    top: 0%;
+    left: 0%;
+    width: 5%;
+    height: 100%;
+}
+
+/* PARED DERECHA */
+.pared-derecha {
+    top: 0%;
+    right: 0%;
+    width: 5%;
+    height: 100%;
+}
+
+/* PARED INFERIOR */
+.pared-abajo {
+    bottom: 0%;
+    left: 0%;
+    width: 100%;
+    height: 5%;
+}

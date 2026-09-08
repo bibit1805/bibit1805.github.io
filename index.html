@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>La Directiva</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main id="juego">
+
+        <!-- ESCENA 1 -->
+        <section id="escena1" class="escena activa">
+            <div class="escena-fondo">
+        <audio id="sonidoNoche" controls loop>
+    <source src="sonidos/griloo.mp3" type="audio/mpeg">
+</audio>
+
+     <img src="imagenes/edificios_noche.png" class="fondo-noche">
+
+     <img src="imagenes/cochenoche.png" class="carro-noche">
+    <div class="hora">07:00 AM</div>
+    <h1 class="titulo-juego">-La misión del reporterito-</h1>
+
+    <button class="boton-continuar" onclick="siguienteEscena()">
+        CONTINUAR
+    </button>
+
+</div>
+
+        </section>
+
+
+       <!-- ESCENA 2: RECEPCIÓN -->
+<section id="escena2" class="escena">
+    <div id="recepcion">
+
+        <!-- FONDO -->
+        <img src="imagenes/recepcion.png" class="recepcion-fondo">
+
+        <!-- OBJETOS -->
+ <img src="imagenes/detectormetales.png" id="detector" class="objeto detector-recepcion">
+ <div class="zona-detector"></div>
+
+<img src="imagenes/elevador.png" class="objeto elevador-recepcion">
+<img src="imagenes/puertacristal.png" id="puerta" class="objeto puerta-recepcion">
+<div class="zona-puerta"></div>
+
+<img src="imagenes/mesarecepcion.png" class="objeto mesa-recepcion">
+
+<img src="imagenes/mostrador.png" id="mostrador" class="objeto mostrador-recepcion">
+<div class="zona-mostrador"></div>
+
+<img src="imagenes/fuente.png" class="objeto fuente-recepcion">
+<img src="imagenes/sillonrecepcion.png" id="sillon" class="sillon-recepcion">
+
+<div id="reporterito-contenedor">
+    <img src="imagenes/paso1.png" id="reporterito">
+</div>
+<!-- ZONAS DE COLISIÓN - TEMPORALES -->
+<div class="pared pared-arriba-izq"></div>
+<div class="pared pared-arriba-der"></div>
+<div class="pared pared-izquierda"></div>
+<div class="pared pared-derecha"></div>
+<div class="pared pared-abajo"></div>
+    </div>
+</section>
+
+        <!-- ESCENA 3 -->
+        <section id="escena3" class="escena">
+            <div class="contenido">
+                <h2>Ascensor</h2>
+                <p>Joshua se dirige al elevador.</p>
+
+                <button onclick="siguienteEscena()">
+                    ACERCARSE
+                </button>
+            </div>
+        </section>
+
+
+        <!-- ESCENA 4 -->
+        <section id="escena4" class="escena">
+            <div class="contenido">
+                <div class="candado">🔐</div>
+
+                <h2>IDENTIFICACIÓN REQUERIDA</h2>
+
+                <p>
+                    Presente su credencial ante el lector.
+                </p>
+
+                <button onclick="abrirCamara()">
+                    📷 ACTIVAR LECTOR
+                </button>
+            </div>
+        </section>
+
+
+        <!-- ESCENA 5 -->
+        <section id="escena5" class="escena">
+            <div class="contenido">
+
+                <h2>ESCANEANDO...</h2>
+
+                <div id="lector">
+                    📷
+                </div>
+
+                <p>
+                    Acerque la credencial a la cámara.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- ESCENA 6 -->
+        <section id="escena6" class="escena">
+            <div class="contenido">
+
+                <div class="correcto">✓</div>
+
+                <h2>ACCESO CONCEDIDO</h2>
+
+                <p>AGENTE JOSHUA</p>
+
+                <button onclick="siguienteEscena()">
+                    CONTINUAR
+                </button>
+
+            </div>
+        </section>
+
+
+        <!-- ESCENA 7 -->
+        <section id="escena7" class="escena">
+            <div class="contenido">
+
+                <h2>ASCENDIENDO...</h2>
+
+                <div class="elevador">
+                    ↑
+                </div>
+
+                <p>Nivel 12</p>
+
+            </div>
+        </section>
+
+
+        <!-- ESCENA 8 -->
+        <section id="escena8" class="escena">
+            <div class="contenido">
+
+                <p>Las puertas se abren.</p>
+
+                <h1>BIENVENIDO, AGENTE.</h1>
+
+                <button onclick="entrarOficina()">
+                    ENTRAR A LA OFICINA
+                </button>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
